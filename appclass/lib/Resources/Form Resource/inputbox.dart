@@ -10,7 +10,9 @@ class InputB extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Material(
+      elevation: 5,
+      borderRadius: BorderRadiusDirectional.all(Radius.circular(25)),
       child: TextField(
           textCapitalization: TextCapitalization.sentences,
           decoration: InputDecoration(
