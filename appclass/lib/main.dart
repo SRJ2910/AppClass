@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // home: Rform(),
-      home: Qr_gen(),
+      home: Rform(),
+      // home: Qr_gen(),
     );
   }
 }
