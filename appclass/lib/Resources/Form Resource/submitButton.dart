@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class submitButton extends StatelessWidget {
   final String text;
   final Icon icon;
-  final dynamic onpressed;
+  final Function onpressed;
 
   submitButton(
       {required this.text, required this.icon, required this.onpressed});
@@ -29,9 +29,7 @@ class submitButton extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(23)),
               splashColor: Color.fromRGBO(56, 182, 255, 10),
               highlightColor: Colors.transparent,
-              onTap: () {
-                onpressed;
-              },
+              onTap: onpressed(),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,

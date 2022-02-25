@@ -214,7 +214,9 @@ class _RformState extends State<Rform> {
               submitButton(
                 text: "Submit",
                 icon: Icon(Icons.app_registration_outlined),
-                onpressed: null,
+                onpressed: () {
+                  print("submit");
+                },
               )
             ],
           ),
