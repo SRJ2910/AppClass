@@ -1,4 +1,5 @@
 import 'package:appclass/Registration_Form.dart';
+import 'package:appclass/pickProfileimg.dart';
 import 'package:appclass/qrgenerator.dart';
 import 'package:flutter/material.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       home: Rform(),
       // home: Qr_gen(),
+      // home: pickImg(),
     );
   }
 }

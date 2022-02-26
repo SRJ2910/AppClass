@@ -1,11 +1,14 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, non_constant_identifier_names, prefer_const_constructors, prefer_typing_uninitialized_variables, avoid_print
+
+import 'dart:io';
 
 import 'package:appclass/Resources/Form%20Resource/inputbox.dart';
 import 'package:appclass/Resources/Form%20Resource/submitButton.dart';
+import 'package:appclass/pickProfileimg.dart';
 import 'package:awesome_dropdown/awesome_dropdown.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Rform extends StatefulWidget {
   const Rform({Key? key}) : super(key: key);
@@ -15,58 +18,82 @@ class Rform extends StatefulWidget {
 }
 
 class _RformState extends State<Rform> {
-  TextEditingController TextControl = TextEditingController();
+  // TextEditingController TextControl = TextEditingController();
+  TextEditingController TextControl_Email = TextEditingController();
+  TextEditingController TextControl_Name = TextEditingController();
+  TextEditingController TextControl_FNmae = TextEditingController();
+  TextEditingController TextControl_MName = TextEditingController();
+  TextEditingController TextControl_Address = TextEditingController();
+  TextEditingController TextControl_PhoneNo = TextEditingController();
   late String dob;
   late String gender;
   late String caste;
+  late var img;
+  late String imgName;
+  var imagePicker = ImagePicker();
 
   @override
   void initState() {
     dob = "Date of birth";
+    img = null;
+    imgName = '';
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    print(TextControl.text);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Registration Form"),
+        title: const Text("Registration Form"),
       ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              SizedBox(height: 10),
+              SizedBox(height: 30),
+              pickImg(
+                image: img,
+                size: 200,
+                ontap: () async {
+                  XFile? image =
+                      await imagePicker.pickImage(source: ImageSource.gallery);
+
+                  setState(() {
+                    img = File(image!.path);
+                    imgName = image.path.split('/').last;
+                  });
+                },
+              ),
+              // Text("$imgName"),
+              SizedBox(height: 30),
               InputB(
                 Heading: "Email Address",
-                InputControl: TextControl,
+                InputControl: TextControl_Email,
                 icon: Icon(Icons.email),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               InputB(
                 Heading: 'Name',
-                InputControl: TextControl,
+                InputControl: TextControl_Name,
                 icon: Icon(Icons.person),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               InputB(
                 Heading: "Father's Name",
-                InputControl: TextControl,
+                InputControl: TextControl_FNmae,
                 icon: Icon(Icons.person),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               InputB(
                 Heading: "Mother's Name",
-                InputControl: TextControl,
+                InputControl: TextControl_MName,
                 icon: Icon(Icons.person),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               Material(
-                elevation: 5,
+                elevation: 10,
                 borderRadius: BorderRadiusDirectional.all(Radius.circular(25)),
                 child: Container(
                   height: 55,
@@ -114,19 +141,19 @@ class _RformState extends State<Rform> {
                             ),
                             Text(
                               dob,
-                              style: TextStyle(fontSize: 18),
+                              style: TextStyle(fontSize: 17),
                             ),
                           ],
                         )),
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               Row(
                 children: [
                   Flexible(
                     child: Material(
-                      elevation: 5,
+                      elevation: 10,
                       borderRadius:
                           BorderRadiusDirectional.all(Radius.circular(25)),
                       child: Container(
@@ -160,7 +187,7 @@ class _RformState extends State<Rform> {
                   ),
                   Flexible(
                     child: Material(
-                      elevation: 5,
+                      elevation: 10,
                       borderRadius:
                           BorderRadiusDirectional.all(Radius.circular(25)),
                       child: Container(
@@ -198,19 +225,19 @@ class _RformState extends State<Rform> {
                   ),
                 ],
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               InputB(
                 Heading: "Address",
-                InputControl: TextControl,
+                InputControl: TextControl_Address,
                 icon: Icon(Icons.home),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 20),
               InputB(
                 Heading: "Phone No.",
-                InputControl: TextControl,
+                InputControl: TextControl_PhoneNo,
                 icon: Icon(Icons.phone),
               ),
-              SizedBox(height: 110),
+              SizedBox(height: 50),
               submitButton(
                 text: "Submit",
                 icon: Icon(Icons.app_registration_outlined),
@@ -218,7 +245,6 @@ class _RformState extends State<Rform> {
                   print("submit");
                 },
               ),
-              ElevatedButton(onPressed: () {}, child: Text("data"))
             ],
           ),
         ),

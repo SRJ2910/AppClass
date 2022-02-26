@@ -15,8 +15,8 @@ class submitButton extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 120),
       child: Material(
-        color: Color.fromRGBO(56, 182, 255, 50),
-        elevation: 5,
+        color: Colors.blue.shade200,
+        elevation: 10,
         borderRadius: BorderRadiusDirectional.all(Radius.circular(25)),
         child: Container(
           height: 55,
@@ -27,7 +27,7 @@ class submitButton extends StatelessWidget {
               // focusColor: Colors.blue,
               radius: 500,
               borderRadius: BorderRadius.all(Radius.circular(23)),
-              splashColor: Color.fromRGBO(56, 182, 255, 10),
+              splashColor: Colors.blue.shade300,
               highlightColor: Colors.transparent,
               onTap: () {
                 onpressed();
@@ -40,32 +40,14 @@ class submitButton extends StatelessWidget {
                   SizedBox(
                     width: 10,
                   ),
-                  Text(text),
+                  Text(
+                    text,
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
                 ],
               )),
         ),
       ),
-      // Material(
-      //   color: Colors.blue[100],
-      //   elevation: 5,
-      //   borderRadius: BorderRadiusDirectional.all(Radius.circular(25)),
-      //   child: Padding(
-      //     padding: const EdgeInsets.symmetric(horizontal: 10),
-      //     child: InkWell(
-      //         onTap: () {
-      //           onpressed;
-      //         },
-      //         child: Row(
-      //           children: [
-      //             icon,
-      //             SizedBox(
-      //               width: 10,
-      //             ),
-      //             Text(text),
-      //           ],
-      //         )),
-      //   ),
-      // ),
     );
   }
 }
