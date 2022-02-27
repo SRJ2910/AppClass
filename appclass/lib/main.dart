@@ -1,6 +1,8 @@
+import 'package:appclass/RegisteredForm/personForm.dart';
 import 'package:appclass/Registration_Form.dart';
 import 'package:appclass/pickProfileimg.dart';
 import 'package:appclass/qrgenerator.dart';
+import 'package:appclass/samplewidget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,9 +19,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Rform(),
+      // home: Rform(),
       // home: Qr_gen(),
       // home: pickImg(),
+      // home: Sample(),
+      home: PersonForm(),
     );
   }
 }
