@@ -8,9 +8,13 @@ class cutIcon extends StatelessWidget {
     return Container(
         child: Row(
             children: List.generate(
-                10,
+                8,
                 (index) => Row(
-                      children: [Icon(Icons.cut), Text("----------")],
+                      children: [
+                        Text("----------"),
+                        Icon(Icons.cut),
+                        Text("----------")
+                      ],
                     ))));
   }
 }

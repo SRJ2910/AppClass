@@ -1,8 +1,8 @@
 import 'package:appclass/RegisteredForm/personForm.dart';
 import 'package:appclass/Registration_Form.dart';
+import 'package:appclass/Resources/Registered%20Form%20Resource/pdfmaking.dart';
 import 'package:appclass/pickProfileimg.dart';
 import 'package:appclass/qrgenerator.dart';
-import 'package:appclass/samplewidget.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,15 +15,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      // home: Rform(),
-      // home: Qr_gen(),
-      // home: pickImg(),
-      // home: Sample(),
-      home: PersonForm(),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        // home: Rform(),
+        // home: Qr_gen(),
+        // home: pickImg(),
+        // home: Sample(),
+        // home: PersonForm(),
+        home: Pdfmake());
   }
 }
